@@ -5,13 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nativa Studio | Tienda de ropa en Santiago</title>
 <meta name="description" content="Ropa y accesorios para mujer y hombre en Santiago. Arma tu pedido y envíalo por WhatsApp.">
-<meta property="og:title" content="Nativa Studio">
-<meta property="og:description" content="Colección nueva. Arma tu pedido y envíalo por WhatsApp.">
+<link rel="canonical" href="https://daltonarc.github.io/stackrd-demo-tienda/">
+<meta property="og:title" content="Nativa Studio | Tienda de ropa en Santiago">
+<meta property="og:description" content="Ropa y accesorios para mujer y hombre en Santiago. Arma tu pedido y envíalo por WhatsApp.">
+<meta property="og:url" content="https://daltonarc.github.io/stackrd-demo-tienda/">
 <meta property="og:image" content="https://daltonarc.github.io/stackrd-demo-tienda/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nativa Studio, demo de sitio web">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<meta property="og:locale" content="es_DO">
+<meta property="og:site_name" content="Nativa Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e0e0e">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="demo.css">
 <link rel="stylesheet" href="assets/ecf-demo.css">
 <style>
 :root{--ecf-acento:#0e0e0e;--ecf-acento-tx:#fff;--ecf-tinta:#0e0e0e;--ecf-suave:#767672;--ecf-borde:#e4e4e1;--ecf-radio:12px;--n:#0e0e0e;--b:#fff;--g:#f2f2f0;--l:#e4e4e1;--m:#767672;--acento:#ff5a36;--syne:'Syne',sans-serif}
@@ -199,11 +210,13 @@ footer a{color:var(--n);font-weight:700}
   .pie .cta{min-height:54px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+.aviso{color:#0e0e0e;font-weight:600}.pie .cta{border:0;font-family:inherit;cursor:pointer}.pie .cta:disabled{opacity:.35;cursor:not-allowed}.pie .cta[aria-disabled=true]{opacity:1;pointer-events:auto}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<div class="demo">Página de demostración hecha por StackRD · <a href="https://wa.me/18293390257?text=Hola%2C%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener">¿Quieres una así para tu negocio?</a></div>
+<a class="skip" href="#catalogo">Saltar al contenido</a>
+<div class="demo">Página de demostración de un negocio ficticio</div>
 <div class="aviso">Delivery en Santiago y envíos a todo el país</div>
 <header><div class="wrap">
   <nav><a href="#catalogo" data-f="mujer">Mujer</a><a href="#catalogo" data-f="hombre">Hombre</a><a href="#catalogo" data-f="accesorios">Accesorios</a></nav>
@@ -274,7 +287,7 @@ footer a{color:var(--n);font-weight:700}
   <p>En esta demostración la factura no se envía a la DGII. En tu negocio se conecta al Facturador Gratuito o a un proveedor certificado.</p>
 </div></section>
 
-<div class="wrap"><footer><span>© Nativa Studio · Santiago de los Caballeros</span><span>Página hecha por <a href="https://wa.me/18293390257?text=Hola%2C%20vi%20una%20p%C3%A1gina%20hecha%20por%20StackRD%20y%20quiero%20una." target="_blank" rel="noopener">StackRD</a></span></footer></div>
+<div class="wrap"><footer><span>© Nativa Studio · Santiago de los Caballeros</span><span>Negocio ficticio</span></footer></div>
 
 <div class="velo" id="velo"></div>
 <aside class="cajon" id="cajon" aria-label="Carrito">
@@ -284,15 +297,18 @@ footer a{color:var(--n);font-weight:700}
     <div class="t"><span>Total</span><span id="total">RD$0</span></div>
     <input id="nombre" placeholder="Tu nombre" aria-label="Tu nombre">
     <select id="entrega" aria-label="Entrega"><option>Delivery en Santiago</option><option>Retiro en tienda</option><option>Envío a otra provincia</option></select>
-    <a class="cta" id="enviar" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido por WhatsApp</a>
+    <button type="button" class="cta" id="enviar" disabled>Enviar pedido por WhatsApp</button>
     <div id="ecf"></div>
   </div>
 </aside>
 
+<script src="config.js"></script>
+<script src="demo.js"></script>
 <script src="assets/vendor/qrcode.js"></script>
 <script src="assets/ecf-demo.js"></script>
 <script>
-const WA='18293390257',wa=m=>'https://wa.me/'+WA+'?text='+encodeURIComponent(m),fmt=n=>'RD$'+n.toLocaleString('en-US');
+const lim=v=>v.trim().replace(/[\s.,;:!?]+$/,'');
+const GK='nativa-pedido';
 const SH={
  camisa:c=>`<svg viewBox="0 0 100 110" fill="none" stroke="#0e0e0e" stroke-width="1.8" stroke-linejoin="round"><path d="M36 8c3 5 8 8 14 8s11-3 14-8l20 9 9 24-15 6-4-8v65H26V39l-4 8-15-6 9-24z" fill="${c}"/><path d="M50 16v80" stroke-dasharray="2 5"/></svg>`,
  tshirt:c=>`<svg viewBox="0 0 100 110" fill="none" stroke="#0e0e0e" stroke-width="1.8" stroke-linejoin="round"><path d="M36 10c4 6 9 8 14 8s10-2 14-8l22 10 8 20-15 6-3-6v66H24V40l-3 6-15-6 8-20z" fill="${c}"/></svg>`,
@@ -323,6 +339,7 @@ const P=[
 const CN={'#ff5a36':'Coral','#f4f1ea':'Crema','#8fb3c9':'Azul cielo','#e9b7a8':'Rosa','#6e8f74':'Verde oliva','#0e0e0e':'Negro','#ffffff':'Blanco','#c9b48a':'Beige','#d8c27a':'Mostaza','#2f3b4c':'Azul marino','#7a4a2a':'Carey'};
 P.forEach((x,i)=>{x.i=i;x.ts=x.t[0];x.cs=0});
 let filtro='todo',orden='dest',cart=[];
+(function(){const g=guardado.leer(GK);if(!Array.isArray(g))return;g.slice(0,30).forEach(s=>{if(!s||!Number.isInteger(s.i)||!Number.isInteger(s.c))return;const x=P[s.i];if(!x||!x.t.includes(s.t)||s.c<0||s.c>=x.col.length)return;const q=Math.floor(+s.q);if(!(q>=1))return;const k=s.i+'|'+s.t+'|'+s.c;if(cart.some(c=>c.k===k))return;cart.push({k,x,t:s.t,c:s.c,q:Math.min(q,99)})})})();
 const G=document.getElementById('grid');
 function card(x){return `<article class="prod"><div class="foto" style="background:${x.bg}">${x.tag?`<span class="tag ${x.tag==='Oferta'?'oferta':''}">${x.tag}</span>`:''}${SH[x.s](x.col[x.cs])}</div>
 <h3>${x.n}</h3><div class="pr">${fmt(x.p)}${x.o?`<s>${fmt(x.o)}</s>`:''}</div>
@@ -358,13 +375,18 @@ function pintar(){
  document.getElementById('cnt').textContent=n;document.getElementById('total').textContent=fmt(tot);
  I.innerHTML=cart.length?cart.map((c,k)=>`<div class="it"><div class="mini" style="background:${c.x.bg}">${SH[c.x.s](c.x.col[c.c])}</div><div><h4>${c.x.n}</h4><small>Talla ${c.t} · ${CN[c.x.col[c.c]]}</small><div class="qty"><button data-k="${k}" data-d="-1" aria-label="Menos">−</button><b>${c.q}</b><button data-k="${k}" data-d="1" aria-label="Más">+</button></div></div><span class="pr">${fmt(c.q*c.x.p)}</span></div>`).join(''):'<p class="vacio">Tu carrito está vacío.<br>Agrega algo del catálogo.</p>';
  ECF.refresh();
- const b=document.getElementById('enviar'),nom=document.getElementById('nombre').value.trim();
- b.setAttribute('aria-disabled',cart.length?'false':'true');
- b.href=wa(`Hola, vi la demo de Nativa Studio y quiero hacer este pedido:\n${cart.map(c=>`• ${c.q} x ${c.x.n} · Talla ${c.t} · ${CN[c.x.col[c.c]]} (${fmt(c.q*c.x.p)})`).join('\n')}\nTotal: ${fmt(tot)}\nEntrega: ${document.getElementById('entrega').value}${nom?'\nNombre: '+nom:''}`);
+ const b=document.getElementById('enviar'),nom=lim(document.getElementById('nombre').value);guardado.escribir(GK,cart.map(c=>({i:c.x.i,t:c.t,c:c.c,q:c.q})));
+ b.disabled=!cart.length;
+ b.dataset.enlace=wa(`Hola, quiero hacer este pedido:\n${cart.map(c=>`• ${c.q} x ${c.x.n} · Talla ${c.t} · ${CN[c.x.col[c.c]]} (${fmt(c.q*c.x.p)})`).join('\n')}\nTotal: ${fmt(tot)}\nEntrega: ${document.getElementById('entrega').value}${nom?'\nNombre: '+nom:''}`);
 }
+document.getElementById('enviar').onclick=e=>{const b=e.currentTarget;if(!b.disabled)window.open(b.dataset.enlace,'_blank','noopener')};
 render();pintar();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
+<div class="credito">Demo creada por <a href="https://daltonarc.github.io/stackrd-web/" target="_blank" rel="noopener">StackRD</a></div>
+<a class="wa-float" data-wa="Hola, quiero información." href="https://wa.me/18293390257?text=%5BDEMO%20Nativa%20Studio%5D%20Hola%2C%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.6l-.4-.3-3.8 1.2 1.2-3.7-.3-.4a10.4 10.4 0 0 1-1.7-5.8C5.1 9.9 10 5.2 16 5.2s10.9 4.7 10.9 10.6S22 26.4 16 26.4zm6-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a>
+
+
 </body>
 </html>
