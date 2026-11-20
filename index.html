@@ -68,7 +68,7 @@ header nav a:hover{color:var(--acento)}
 .cat{position:relative;height:300px;border-radius:22px;overflow:hidden;display:flex;align-items:flex-end;padding:24px;cursor:pointer}
 .cat svg{position:absolute;inset:0;margin:auto;height:72%;transition:transform .5s}
 .cat:hover svg{transform:scale(1.06) rotate(-2deg)}
-.cat h3{position:relative;font-family:var(--syne);font-weight:800;font-size:34px;letter-spacing:-1px}
+.cat h2{position:relative;font-family:var(--syne);font-weight:800;font-size:34px;letter-spacing:-1px}
 .cat span{position:relative;margin-left:auto;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700}
 /* catalogo */
 #catalogo{padding:60px 0 90px}
@@ -85,7 +85,7 @@ select{font:inherit;font-size:14px;border:1.5px solid var(--l);border-radius:999
 .prod .foto svg{width:66%;transition:transform .5s}
 .prod:hover .foto svg{transform:scale(1.06)}
 .prod .tag{position:absolute;top:12px;left:12px;background:#fff;border-radius:999px;font-size:11.5px;font-weight:700;padding:5px 10px;letter-spacing:.5px;text-transform:uppercase}
-.prod .tag.oferta{background:var(--acento);color:#fff}
+.prod .tag.oferta{background:var(--acento);color:#0e0e0e}
 .prod h3{font-size:15.5px;font-weight:500}
 .prod .pr{font-weight:700;font-size:15.5px}
 .prod .pr s{color:var(--m);font-weight:400;margin-left:6px;font-size:14px}
@@ -171,7 +171,7 @@ footer a{color:var(--n);font-weight:700}
   .cat{height:190px;padding:20px;border-radius:20px}
   .cat svg{inset:14px 0 auto 0;margin:0 auto;height:58%}
   .cat:hover svg{transform:none}
-  .cat h3{font-size:clamp(22px,6.6vw,28px);letter-spacing:-.5px}
+  .cat h2{font-size:clamp(22px,6.6vw,28px);letter-spacing:-.5px}
   .cat span{flex-shrink:0;white-space:nowrap;padding:10px 16px}
   #catalogo{padding:44px 0 60px}
   .bar{gap:16px;margin-bottom:20px}
@@ -221,7 +221,7 @@ footer a{color:var(--n);font-weight:700}
 <header><div class="wrap">
   <nav><a href="#catalogo" data-f="mujer">Mujer</a><a href="#catalogo" data-f="hombre">Hombre</a><a href="#catalogo" data-f="accesorios">Accesorios</a></nav>
   <a class="logo" href="#">nativa<i>.</i>studio</a>
-  <button class="carbtn" id="abrir" aria-label="Abrir carrito">Carrito <b id="cnt">0</b></button>
+  <button class="carbtn" id="abrir">Carrito <b id="cnt">0</b></button>
 </div></header>
 
 <section class="hero">
@@ -243,9 +243,9 @@ footer a{color:var(--n);font-weight:700}
 
 <div class="wrap">
   <div class="cats">
-    <a class="cat rv" style="background:#f3d9cf" href="#catalogo" data-f="mujer"><svg viewBox="0 0 100 140" fill="none" stroke="#0e0e0e" stroke-width="2"><path d="M38 8l12 10 12-10 8 22-6 14 18 86H18l18-86-6-14z" fill="#fff"/></svg><h3>Mujer</h3><span>Ver →</span></a>
-    <a class="cat rv" style="background:#d6e2ea" href="#catalogo" data-f="hombre"><svg viewBox="0 0 100 140" fill="none" stroke="#0e0e0e" stroke-width="2"><path d="M34 10c4 6 10 9 16 9s12-3 16-9l20 10 10 26-16 6-4-8v86H24V44l-4 8-16-6 10-26z" fill="#fff"/></svg><h3>Hombre</h3><span>Ver →</span></a>
-    <a class="cat rv" style="background:#ece6c9" href="#catalogo" data-f="accesorios"><svg viewBox="0 0 100 140" fill="none" stroke="#0e0e0e" stroke-width="2"><path d="M30 50c0-18 9-30 20-30s20 12 20 30" /><rect x="16" y="50" width="68" height="70" rx="8" fill="#fff"/></svg><h3>Accesorios</h3><span>Ver →</span></a>
+    <a class="cat rv" style="background:#f3d9cf" href="#catalogo" data-f="mujer"><svg viewBox="0 0 100 140" fill="none" stroke="#0e0e0e" stroke-width="2"><path d="M38 8l12 10 12-10 8 22-6 14 18 86H18l18-86-6-14z" fill="#fff"/></svg><h2>Mujer</h2><span>Ver →</span></a>
+    <a class="cat rv" style="background:#d6e2ea" href="#catalogo" data-f="hombre"><svg viewBox="0 0 100 140" fill="none" stroke="#0e0e0e" stroke-width="2"><path d="M34 10c4 6 10 9 16 9s12-3 16-9l20 10 10 26-16 6-4-8v86H24V44l-4 8-16-6 10-26z" fill="#fff"/></svg><h2>Hombre</h2><span>Ver →</span></a>
+    <a class="cat rv" style="background:#ece6c9" href="#catalogo" data-f="accesorios"><svg viewBox="0 0 100 140" fill="none" stroke="#0e0e0e" stroke-width="2"><path d="M30 50c0-18 9-30 20-30s20 12 20 30" /><rect x="16" y="50" width="68" height="70" rx="8" fill="#fff"/></svg><h2>Accesorios</h2><span>Ver →</span></a>
   </div>
 </div>
 
