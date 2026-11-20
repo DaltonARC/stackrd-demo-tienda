@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 var MARCA='DOCUMENTO DE DEMOSTRACIÓN · NO VÁLIDO ANTE LA DGII · Generado por StackRD';
-var WA='18293390257',TASA=1.18;
+var CFG=window.DEMO||{},WA=CFG.whatsapp||'18293390257',PRE=CFG.prefijo?CFG.prefijo+' ':'',TASA=1.18;
 var TIPOS={'31':'Factura de Crédito Fiscal Electrónica','32':'Factura de Consumo Electrónica'};
 
 var memoria={};
@@ -218,7 +218,7 @@ function abre(f){
   if(!overlay)construye();
   actual=f;lastFocus=document.activeElement;
   paper.innerHTML=facturaHtml(f);
-  btnWa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Factura e-CF de demostración '+f.encf+' por RD$ '+money(f.calculo.total)+'\nHola, vi la demo de factura electrónica de '+f.emisor.nombre+' y quiero esto para mi negocio.');
+  btnWa.href='https://wa.me/'+WA+'?text='+encodeURIComponent(PRE+'Factura e-CF de demostración '+f.encf+' por RD$ '+money(f.calculo.total)+'\nHola, vi la demo de factura electrónica de '+f.emisor.nombre+' y quiero esto para mi negocio.');
   overlay.hidden=false;
   document.documentElement.classList.add('ecf-abierto');
   dialog.scrollTop=0;paper.scrollTop=0;
